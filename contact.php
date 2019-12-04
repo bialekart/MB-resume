@@ -11,19 +11,19 @@
     $error = "";
 
     if (strlen($name) < 2) {
-        $error['name'] = "Please enter your name.";
+        $error['name'] = "Proszę podać imie.";
     }
 
     if (!preg_match('/^[a-z0-9&\'\.\-_\+]+@[a-z0-9\-]+\.([a-z0-9\-]+\.)*+[a-z]{2}/is', $email)) {
-        $error['email'] = "Please enter a valid email address.";
+        $error['email'] = "Proszę podać poprawny adres e-mail.";
     }
 
     if (strlen($subject) < 2) {
-        $error['subject'] = "Please enter a subject.";
+        $error['subject'] = "Proszę podac temat.";
     }
 
     if (strlen($message) < 1) {
-        $error['message'] = "Please leave a message.";
+        $error['message'] = "Proszę wpisać treść wiadomości.";
     }
 
     if (!$error) {
