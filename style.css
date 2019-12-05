@@ -1,18 +1,5 @@
 /*
 
-[Main Stylesheet]
-
-Project     :   CVIT - Multipurpose Personal vCard / CV / Resume Template
-Version     :   1.2
-Author      :   themelooks
-Author URL  :   https://themeforest.net/user/themelooks
-
-
-NOTE:
-------
-PLEASE DO NOT EDIT THIS CSS, YOU MAY NEED TO USE "custom-style.css" FILE FOR WRITING YOUR CUSTOM CSS.
-WE MAY RELEASE FUTURE UPDATES SO IT WILL OVERWRITE THIS FILE. IT'S BETTER AND SAFER TO USE "custom-style.css".
-
 
 [TABLE OF CONTENTS]
 
@@ -32,7 +19,6 @@ WE MAY RELEASE FUTURE UPDATES SO IT WILL OVERWRITE THIS FILE. IT'S BETTER AND SA
     2.2. HEADER NAVBAR TOGGLE BUTTON
     2.3. HEADER NAVBAR BRAND
     2.4. HEADER NAV
-    2.5. HEADER CUSTOM BUTTON
     
 3. BANNER AREA
     3.1. BANNER CONTENT
@@ -49,48 +35,25 @@ WE MAY RELEASE FUTURE UPDATES SO IT WILL OVERWRITE THIS FILE. IT'S BETTER AND SA
     6.1. GALLERY FILTER MENU
     6.2. GALLERY ITEM
 
-7. FEEDBACK AREA
-    7.1. FEEDBACK TITLE
-    7.2. FEEDBACK FAQ
-    7.3. FEEDBACK SLIDER
-    7.4. FEEDBACK ITEMS
-
-8. BLOG AREA
-    8.1. BLOG QUICK NAV
-    8.2. POSTS FILTER MENU
-    8.3. POST ITEMS
-    8.4. BLOG DETAILS MODAL
-
-9. BRANDS AREA
-
-10. COUNTER AREA
-    10.1. COUNTER ITEM
-
-11. CONTACT AREA
+7. CONTACT AREA
     11.1. CONTACT ADDRESS
     11.2. CONTACT SOCIAL
     11.3. CONTACT SOCIAL
 
-12. MAP AREA
 
-X. SUBSCRIBE AREA
-    X.X. SUBSCRIBE FORM
-
-13. FOOTER AREA
+8. FOOTER AREA
     13.1. FOOTER COPYRIGHT
 
-14. BACK TO TOP AREA
+9. BACK TO TOP AREA
 
-15. HIRE ME CONTACT MODAL
+10. 404 PAGE
 
-16. 404 PAGE
-
-17. MEDIA QUERIES
+11. MEDIA QUERIES
     17.1. DESKTOP
     17.2. TABLET
     17.3. MOBILE
     
-18. HELPER CLASSES
+12. HELPER CLASSES
     18.1. RESET GUTTER
     18.2. RESET MARGIN
     18.3. RESET PADDING
@@ -99,9 +62,7 @@ X. SUBSCRIBE AREA
 
 */
 
-/*------------------------------------*\
-    1. GENERAL STYLES
-\*------------------------------------*/
+/* 1. GENERAL STYLES */
 html,
 body {
     height: 100%;
@@ -490,9 +451,8 @@ p:last-child {
     }
 }
 
-/*------------------------------------*\
-    2. HEADER AREA
-\*------------------------------------*/
+/*2. HEADER AREA */
+
 /* 2.1. HEADER NAVBAR */
 .header--navbar {
     position: fixed;
