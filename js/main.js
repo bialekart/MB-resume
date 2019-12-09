@@ -1,3 +1,20 @@
+/*
+
+[Main Script]
+
+Project     :   CVIT - Multipurpose Personal vCard / CV / Resume Template
+Version     :   1.2
+Author      :   themelooks
+Author URL  :   https://themeforest.net/user/themelooks
+
+
+NOTE:
+------
+PLEASE DO NOT EDIT THIS CSS, YOU MAY NEED TO USE "custom-style.css" FILE FOR WRITING YOUR CUSTOM CSS.
+WE MAY RELEASE FUTURE UPDATES SO IT WILL OVERWRITE THIS FILE. IT'S BETTER AND SAFER TO USE "custom-style.css".
+
+*/
+
 ;(function ($) {
     'use strict';
   
@@ -50,6 +67,27 @@
         
         $animateScrollLink.on('click', animateScrolling);
         $animateScroll.on('click', 'a', animateScrolling);
+    
+        /* -------------------------------------------
+            Counter up
+        ------------------------------------------- */
+        var $counterUp = $('.CounterUp');
+        
+        if ( typeof $.fn.counterUp === "function" ) {
+            $counterUp.counterUp({
+                delay: 10,
+                time: 1000
+            });
+        }
+        
+        /* -------------------------------------------
+            Datepicker
+        ------------------------------------------- */
+        var $datePicker = $('.DatePicker');
+        
+        if ( $datePicker.length ) {
+            $datePicker.datepicker();
+        }
         
         /* -------------------------------------------
             Selectmenu
@@ -87,9 +125,10 @@
                     contactMessage: "required"
                 },
                 messages: {
-                    contactName: "Podaj imię",
-                    contactEmail: "Podaj adres e-mail",
-                    contactMessage: "Wpisz treść wiadomości"
+                    contactName: "Please enter your firstname",
+                    contactEmail: "Please enter a valid email address",
+                    contactSubject: "Please enter your phone number",
+                    contactMessage: "Plase type your message"
                 },
                 submitHandler: function () {
                     var $curForm = $( this.currentForm );
@@ -102,6 +141,173 @@
                 }
             });
         }
+    
+        /* -------------------------------------------
+            Popup Contact Form
+        ------------------------------------------- */
+        var $popupContactForm = $('#popupContactForm'),
+            $hireMeModal = $('#hireMeModal');
+        
+        if ( $popupContactForm.length ) {
+            $popupContactForm.validate({
+                rules: {
+                    name: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    project_title: "required",
+                    category: "required",
+                    budget: "required"
+                },
+                messages: {
+                    name: "Please enter your firstname",
+                    email: "Please enter a valid email address",
+                    project_title: "Please define your project title",
+                    category: "Please type your case category",
+                    budget: "Please enter your budget"
+                },
+                submitHandler: function () {
+                    $popupContactForm.ajaxSubmit({
+                        success: function () {
+                            $hireMeModal.modal('toggle');
+                            $popupContactForm.resetForm();
+                        }
+                    });
+                }
+            });
+            
+            var $pCFfileUpload = $popupContactForm.find('#fileUpload'),
+                $pCFattachStatus = $popupContactForm.find('.attachment-status span');
+            
+            $pCFfileUpload.on('change', function () {
+                var $t = $(this),
+                    value = $t.val().split('\\');
+                
+                value = value[value.length - 1];
+                
+                if ( value.length ) {
+                    $pCFattachStatus.text( value );
+                }
+            });
+        }
+        
+        /* -------------------------------------------
+            Subscribe form
+        ------------------------------------------- */
+        var $subscribeForm = $('.subscribe--form form');
+        
+        if ( $subscribeForm.length ) {
+            $subscribeForm.validate({
+                rules: {
+                    EMAIL: {
+                        required: true,
+                        email: true
+                    }
+                },
+                messages: {
+                    EMAIL: "Please enter a valid email address"
+                }
+            });
+        }
+        
+        /* -------------------------------------------
+            Feedback FAQ Accordion
+        ------------------------------------------- */
+        var $feedbackFAQ = $('.feedback--faq');
+        
+        $feedbackFAQ.on('click', 'a[data-toggle]', function () {
+            if ( $(this).parent('.panel-heading').siblings('.panel-collapse').hasClass('in') ) {
+                return false;
+            }
+        });
+    
+        /* -------------------------------------------
+            Feedback Slider
+        ------------------------------------------- */
+        var $feedbackSlider = $('.FeedbackSlider'),
+            feedbackSliderImg = function () {
+                var i, target, src;
+                
+                for ( i = 0; i < this.$userItems.length; i++ ) {
+                    src = this.$userItems[i];
+                    src = $(src).data('client-img');
+                    target = this.paginationWrapper.children('.owl-page').eq(i).children('span');
+                    
+                    target.html('<img src="'+ src +'">');
+                }
+                
+                // Recalculate parallax dimensions
+                $wn.trigger('resize.px.parallax');
+            };
+
+        if ( $feedbackSlider.length ) {
+            $feedbackSlider.owlCarousel({
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                singleItem: true,
+                autoPlay: true,
+                dots: true,
+                afterInit: feedbackSliderImg,
+                afterUpdate: feedbackSliderImg
+            });
+        }
+        
+        /* -------------------------------------------
+            Brands slider
+        ------------------------------------------- */
+        var $brandsSlider = $('.BrandsSlider');
+        
+        if ( $brandsSlider.length ) {
+            $brandsSlider.owlCarousel({
+                items: 5,
+                autoPlay: true,
+                afterUpdate: function () {
+                    // Recalculate parallax dimensions
+                    $wn.trigger('resize.px.parallax');
+                }
+            });
+        }
+        
+        /* -------------------------------------------
+            Blog quick nav
+        ------------------------------------------- */
+        var $blogQuickNav = $('.blog--quick-nav');
+        
+        $blogQuickNav.on('click', '.toggle--btn', function () {
+            $(this).siblings('.posts-filter-menu').toggle('slow');
+        });
+        
+        /* -------------------------------------------
+            Map
+        ------------------------------------------- */
+        var $map = $('#map'), map, hasTouch;
+            
+        hasTouch = ("ontouchend" in document);
+        
+        if ( $map.length && typeof GMaps !== 'undefined' ) {
+            map = new GMaps({
+                el: '#map',
+                lat: $map.data('latitude'),
+                lng: $map.data('longitude'),
+                zoom: $map.data('zoom'),
+                scrollwheel: false,
+                draggable: !hasTouch
+            });
+            
+            map.addMarker({
+                lat: $map.data('latitude'),
+                lng: $map.data('longitude')
+            });
+            
+            map.addStyle({
+                styles: [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}],
+                mapTypeId: "map_style"
+            });
+            
+            map.setStyle("map_style");
+        }
+    });
     
     /* -------------------------------------------
         Cache window scrolltop postition
@@ -156,7 +362,53 @@
         }
     };
     
-   
+    /* -------------------------------------------
+        Posts Filtering
+    ------------------------------------------- */
+    var postsFiltering = function () {
+            var $postItems = $('.post-items'),
+                postItem = '.post-item',
+                $postFilter = $('.posts-filter-menu');
+            
+            if ( $postItems.length ) {
+                $postItems.isotope({
+                    animationEngine: 'best-available',
+                    masonry: {
+                      columnWidth: 0
+                    },
+                    itemSelector: postItem
+                });
+                
+                $postFilter.on('click', 'a', function () {
+                    var $t = $(this),
+                        f = $t.attr('href'),
+                        s = (f !== '*') ? '[data-cat~="'+ f +'"]' : f;
+                    
+                    $postItems.isotope({
+                        filter: s
+                    });
+                    
+                    return false;
+                });
+                
+                $postFilter.children('ul').niceScroll({
+                    scrollspeed: 100,
+                    touchbehavior: true,
+                    cursoropacitymax: 0
+                });
+                
+                $postItems.isotope('on', 'arrangeComplete', function () {
+                    // Recalculate parallax dimensions
+                    $wn.trigger('resize.px.parallax');
+                });
+            }
+        },
+        postsResizeFilter = function () {
+            setTimeout(function () {
+                postsFiltering();
+            }, 800);
+        };
+    
     /* -------------------------------------------
         About progress bar
     ------------------------------------------- */
