@@ -1,19 +1,4 @@
-/*
 
-[Main Script]
-
-Project     :   CVIT - Multipurpose Personal vCard / CV / Resume Template
-Version     :   1.2
-Author      :   themelooks
-Author URL  :   https://themeforest.net/user/themelooks
-
-
-NOTE:
-------
-PLEASE DO NOT EDIT THIS CSS, YOU MAY NEED TO USE "custom-style.css" FILE FOR WRITING YOUR CUSTOM CSS.
-WE MAY RELEASE FUTURE UPDATES SO IT WILL OVERWRITE THIS FILE. IT'S BETTER AND SAFER TO USE "custom-style.css".
-
-*/
 
 ;(function ($) {
     'use strict';
