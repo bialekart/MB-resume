@@ -1,5 +1,6 @@
 /*
 
+
 [TABLE OF CONTENTS]
 
 1. GENERAL STYLES
@@ -30,28 +31,34 @@
 5. SERVICES AREA
     5.1. SERVICE ITEM
     
-6. CONTACT AREA
-    6.1. CONTACT ADDRESS
-    6.2. CONTACT SOCIAL
-    6.3. CONTACT SOCIAL
+6. GALLERY AREA
+    6.1. GALLERY FILTER MENU
+    6.2. GALLERY ITEM
 
-7. FOOTER AREA
-    7.1. FOOTER COPYRIGHT
+7. CONTACT AREA
+    11.1. CONTACT ADDRESS
+    11.2. CONTACT SOCIAL
+    11.3. CONTACT SOCIAL
 
-8. BACK TO TOP AREA
 
-9. 404 PAGE
+8. FOOTER AREA
+    13.1. FOOTER COPYRIGHT
 
-10. MEDIA QUERIES
-    10.1. TABLET
-    10.2. MOBILE
+9. BACK TO TOP AREA
+
+10. 404 PAGE
+
+11. MEDIA QUERIES
+    17.1. DESKTOP
+    17.2. TABLET
+    17.3. MOBILE
     
-11. HELPER CLASSES
-    11.1. RESET GUTTER
-    11.2. RESET MARGIN
-    11.3. RESET PADDING
-    11.4. VERTICAL CENTERING
-    11.5. ROW EQUAL HEIGHT
+12. HELPER CLASSES
+    18.1. RESET GUTTER
+    18.2. RESET MARGIN
+    18.3. RESET PADDING
+    18.4. VERTICAL CENTERING
+    18.5. ROW EQUAL HEIGHT
 
 */
 
@@ -530,7 +537,20 @@ body.scrolled .header--navbar {
     width: 100%;
 }
 
-/* 3. BANNER AREA */
+/* 2.5. HEADER CUSTOM BUTTON */
+.header--custom-btn {
+    float: right;
+    margin-left: 15px;
+}
+
+.header--custom-btn .btn--default {
+    margin-top: 2px;
+    padding: 10px 15px;
+}
+
+/*------------------------------------*\
+    3. BANNER AREA
+\*------------------------------------*/
 #banner {
     height: 100%;
 }
@@ -577,7 +597,9 @@ body.scrolled .header--navbar {
     margin-top: 22px;
 }
 
-/* 4. ABOUT AREA */
+/*------------------------------------*\
+    4. ABOUT AREA
+\*------------------------------------*/
 #about {
     padding: 80px 0;
 }
@@ -696,7 +718,9 @@ body.scrolled .header--navbar {
     padding-right: 10px;
 }
 
-/* 5. SERVICES AREA */
+/*------------------------------------*\
+    5. SERVICES AREA
+\*------------------------------------*/
 #services {
     position: relative;
     padding: 80px 0 20px;
@@ -727,8 +751,603 @@ body.scrolled .header--navbar {
     line-height: 28px;
 }
 
+/*------------------------------------*\
+    6. GALLERY AREA
+\*------------------------------------*/
+#gallery {
+    padding: 80px 0 64px;
+}
 
-/* 6. CONTACT AREA */
+/* 6.1. GALLERY FILTER MENU */
+.gallery-filter-menu ul {
+    margin: 0 0 20px;
+    padding: 0;
+    list-style: none;
+    font-size: 0;
+    line-height: 0;
+    text-align: center;
+}
+
+.gallery-filter-menu li {
+    display: inline-block;
+    margin: 0 5px 10px;
+}
+
+.gallery-filter-menu a {
+    padding: 12px 15px;
+    font-size: 14px;
+    line-height: 18px;
+    -webkit-transition: color .25s ease, background-color .25s ease-in-out;
+            transition: color .25s ease, background-color .25s ease-in-out;
+}
+
+.gallery-filter-menu a:hover,
+.gallery-filter-menu li.active a {
+    color: #fff;
+    background-color: #303030;
+}
+
+/* 6.2. GALLERY ITEM */
+.gallery-item {
+    position: relative;
+    margin-bottom: 0;
+    padding: 15px;
+    background-color: transparent;
+    border: none;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+}
+
+.gallery--case-study {
+    position: absolute;
+    bottom: 25px;
+    display: block;
+    background-color: #fff;
+    font-size: 14px;
+    padding: 6px 10px;
+    right: 25px;
+    -webkit-transition: opacity .25s ease-in-out;
+            transition: opacity .25s ease-in-out;
+}
+
+.gallery-item:hover .gallery--case-study {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    bottom: 15px;
+    right: 15px;
+    color: #fff;
+    background: rgba(159, 156, 151, 0.8);
+    padding: 15px;
+    text-align: center;
+    -webkit-transition: opacity .25s ease-in-out;
+            transition: opacity .25s ease-in-out;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    overflow: hidden;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+
+.gallery-overlay h2 {
+    margin-top: 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.gallery-overlay p {
+    font-weight: 300;
+    line-height: 24px;
+}
+
+.gallery-overlay .gallery--window {
+    background: transparent;
+    border: 1px solid #fff;
+    font-weight: 500;
+    border-radius: 0;
+    outline: 0;
+    color: #fff;
+    -webkit-transition: .25s;
+            transition: .25s;
+    text-transform: uppercase;
+}
+
+.gallery-overlay .gallery--window:hover,
+.gallery-overlay .gallery--window:focus {
+    color: #fff;
+    background-color: #303030;
+    border-color: #303030;
+}
+
+.gallery-overlay .icon-link {
+    position: absolute;
+    top: -15px;
+    right: -30px;
+    display: block;
+    width: 80px;
+    height: 50px;
+    padding-top: 27px;
+    color: #fff;
+    background-color: #303030;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    font-size: 14px;
+    line-height: 0;
+    font-weight: 700;
+}
+
+.gallery-overlay .icon-link:before {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    display: block;
+}
+
+/* X.X. GALLERY MODAL */
+.gallery--details .modal-body {
+    text-align: center;
+}
+
+.gallery--details .modal-body img {
+    max-width: 100%;
+}
+
+.gallery--description {
+    background-color: #303030;
+    color: #fff;
+    border: none;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 0 40px;
+}
+
+.gallery--description .modal-body {
+    text-align: center;
+}
+
+.gallery--description p {
+    margin: 30px 0;
+}
+
+/*------------------------------------*\
+    7. FEEDBACK AREA
+\*------------------------------------*/
+#feedback {
+    padding: 80px 0;
+    color: #fff;
+}
+
+/* 7.1. FEEDBACK TITLE */
+.feedback--title {
+    position: relative;
+    margin: -4px 0 30px;
+    font-weight: 700;
+    padding-bottom: 21px;
+    font-size: 26px;
+}
+
+.feedback--title:before,
+.feedback--title:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+}
+
+.feedback--title:before {
+    bottom: 0;
+    width: 100px;
+    padding: 4px 0 5px;
+    border-style: solid;
+    border-width: 1px 0;
+    border-color: #737373;
+}
+
+.feedback--title:after {
+    bottom: 5px;
+    width: 200px;
+    height: 1px;
+    background-color: #303030;
+}
+
+.bg--img .feedback--title:before {
+    border-color: #fff;
+}
+
+.bg--img .feedback--title:after {
+    background-color: #fff;
+}
+
+/* 7.2. FEEDBACK FAQ */
+.feedback--faq .panel-group {
+    margin-bottom: 0;
+}
+
+.feedback--faq .panel-default {
+    border: none;
+    border-radius: 0;
+}
+
+.feedback--faq .panel + .panel {
+    margin-top: 10px;
+}
+
+.feedback--faq .panel-heading {
+    padding: 0;
+}
+
+.feedback--faq .panel-heading a {
+    display: block;
+    padding: 10px 15px;
+    color: #303030;
+    background-color: #fff;
+    text-decoration: none;
+}
+
+.feedback--faq .panel-heading a.collapsed i.fa:before {
+    content: "\f067";
+}
+
+.feedback--faq .panel-title i.fa {
+    float: right;
+}
+
+.feedback--faq .panel-body {
+    color: #303030;
+}
+
+/* 7.3. FEEDBACK SLIDER */
+.feedback--slider .owl-pagination {
+    font-size: 0;
+    line-height: 0;
+}
+
+.feedback--slider .owl-controls .owl-page {
+    display: inline-block;
+    margin: 0 5px;
+    border: 1px solid transparent;
+    margin-left: 0;
+    -webkit-transition: border-color .25s ease;
+            transition: border-color .25s ease;
+}
+
+.feedback--slider .owl-controls .owl-page.active {
+    border-color: #fff;
+}
+
+.feedback--slider .owl-controls .owl-page span {
+    display: block;
+    width: 84px;
+    margin: 4px;
+    padding: 2px;
+    background-color: #fff;
+}
+
+.feedback--slider .owl-controls .owl-page img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* 7.4. FEEDBACK ITEMS */
+.feedback--item {
+    padding-left: 2px;
+}
+
+.feedback--item i.fa {
+    float: left;
+    margin-right: 15px;
+    font-size: 40px;
+}
+
+.feedback--item p {
+    margin-bottom: 25px;
+}
+
+.feedback--item .cite {
+    margin-bottom: 25px;
+    display: block;
+    font-weight: 800;
+    font-style: italic;
+}
+
+/*------------------------------------*\
+    8. BLOG AREA
+\*------------------------------------*/
+#blog {
+    padding: 80px 0 50px;
+}
+
+/* 8.1. BLOG QUICK NAV */
+.blog--quick-nav {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 45px;
+    overflow: hidden;
+}
+
+.blog--quick-nav .toggle--btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    float: right;
+    padding: 12px 15px;
+}
+
+/* 8.2. POSTS FILTER MENU */
+.posts-filter-menu {
+    float: right;
+    width: 100%;
+    height: 50px !important;
+    padding: 0 65px 0 15px;
+    border: 1px solid #303030;
+    overflow: hidden;
+}
+
+.posts-filter-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0;
+    line-height: 0;
+    white-space: nowrap;
+    text-align: center;
+    overflow: auto;
+}
+
+.posts-filter-menu ul li {
+    display: inline-block;
+}
+
+.posts-filter-menu ul li a {
+    display: block;
+    color: #303030;
+    padding: 14px 15px;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: none;
+}
+
+/* 8.3. POST ITEMS */
+.post-item {
+    margin-bottom: 30px;
+}
+
+.post--img a {
+    display: block;
+    border-style: solid;
+    border-width: 1px 1px 0;
+    border-color: #ccc;
+    outline: 0;
+}
+
+.post--img img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.post-description {
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ccc;
+}
+
+.post-description h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 300;
+    text-transform: uppercase;
+    word-wrap: break-word;
+}
+
+.post-description h2 a,
+.post-date a {
+    color: #231f20;
+    text-decoration: none;
+    outline: 0;
+}
+
+.post-date {
+    margin-top: 11px;
+    margin-bottom: 0;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.post-description-content {
+    margin: 13px 0 0;
+}
+
+.post-meta {
+    position: relative;
+    padding: 16px 14px 15px;
+    background-color: #ebebeb;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    border-color: #ccc;
+    box-shadow: 0px 2px 1px #ddd;
+}
+
+.post-meta-img {
+    float: left;
+    display: block;
+    width: 35px;
+    margin-top: 2px;
+    margin-right: 9px;
+}
+
+.post-meta-img a {
+    display: block;
+}
+
+.post-meta-desc {
+    float: left;
+}
+
+.post-meta-desc h3 {
+    margin: 1px 0 0;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.post-meta-desc a {
+    color: #303030;
+    text-decoration: none;
+}
+
+.post-meta-desc p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+/* 8.4. BLOG DETAILS MODAL */
+.post--details .logo {
+    color: #fff;
+    margin-top: 7px;
+}
+
+.post--details .social-icons {
+    float: right;
+    margin-top: 10px;
+}
+
+.post--details .social-icons ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0;
+}
+
+.post--details .social-icons li {
+    display: inline-block;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.post--details .social-icons li a {
+    display: block;
+    width: 35px;
+    margin: 0;
+    padding: 6px 0;
+    color: #fff;
+    border: 1px solid #fff;
+    font-size: 14px;
+    text-align: center;
+    -webkit-transition: color .25s ease, background-color .25s ease-in-out, border-color .25s ease;
+            transition: color .25s ease, background-color .25s ease-in-out, border-color .25s ease;
+}
+
+.post--details .social-icons li a:hover,
+.post--details .social-icons li a:focus {
+    color: #303030;
+    border: 1px solid #fff;
+    background: #fff;
+}
+
+.post--details .modal-body {
+    padding-right: 0;
+    padding-left: 0;
+    border-bottom: 50px solid #303030;
+}
+
+.post--details .post-title h2 {
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.post--details .post-title p {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.post--details .post-content {
+    margin-top: 40px;
+}
+
+.post--details .post-content {
+    margin-top: 40px;
+}
+
+.post--details .post-content p {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #303030;
+}
+.post--details .post-content p:last-child {
+    margin-bottom: 0;
+}
+
+.post--details .post-content blockquote {
+    border-color: #303030;
+}
+
+/*------------------------------------*\
+    9. BRANDS AREA
+\*------------------------------------*/
+#brands {
+    padding: 50px 0;
+}
+
+#brands:before {
+    opacity: 0.6;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+}
+
+.brands--slider .owl-item {
+    float: none;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/*------------------------------------*\
+    10. COUNTER AREA
+\*------------------------------------*/
+#counter {
+    padding: 80px 0 30px;
+}
+
+/* 10.1. COUNTER ITEM */
+.counter--item {
+    margin-bottom: 50px;
+    color: #fff;
+}
+
+.counter--num {
+    margin-bottom: 7px;
+    font-size: 32px;
+    line-height: 36px;
+    font-weight: 700;
+}
+
+.counter--num i.fa {
+    margin-right: 7px;
+}
+
+.counter--text {
+    font-size: 16px;
+}
+
+/*------------------------------------*\
+    11. CONTACT AREA
+\*------------------------------------*/
 #contact {
     position: relative;
     padding: 80px 0;
@@ -749,7 +1368,7 @@ body.scrolled .header--navbar {
     border-left: 1px solid #e9e9e9;
 }
 
-/* 6.1. CONTACT ADDRESS */
+/* 11.1. CONTACT ADDRESS */
 .contact--address h2 {
     position: relative;
     margin: 0 0 30px;
@@ -802,7 +1421,7 @@ body.scrolled .header--navbar {
     text-align: center;
 }
 
-/* 6.2. CONTACT SOCIAL */
+/* 11.2. CONTACT SOCIAL */
 .contact--social {
     margin-top: 12px;
 }
@@ -839,7 +1458,7 @@ body.scrolled .header--navbar {
     background: #303030;
 }
 
-/* 6.3. CONTACT FORM */
+/* 11.3. CONTACT SOCIAL */
 .contact--form {
     padding-left: 50px;
 }
@@ -869,8 +1488,68 @@ body.scrolled .header--navbar {
     margin-top: 15px;
 }
 
+/*------------------------------------*\
+    12. MAP AREA
+\*------------------------------------*/
+#map {
+    height: 400px;
+}
 
-/* 7. FOOTER AREA */
+/*------------------------------------*\
+    X. SUBSCRIBE AREA
+\*------------------------------------*/
+#subscribe {
+    padding: 80px 0;
+    color: #fff;
+    background-color: #303030;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+#subscribe .section--title {
+    margin-bottom: 22px;
+}
+
+#subscribe .section--title h2 {
+    padding-bottom: 0;
+}
+
+#subscribe .section--title h2:before,
+#subscribe .section--title h2:after {
+    display: none;
+}
+
+/* X.X. SUBSCRIBE FORM */
+.subscribe--form .input-box {
+    display: block;
+    width: 382px;
+    margin: 0 auto;
+    padding: 8px 0 8px 12px;
+    color: #303030;
+    border: 1px solid #fff;
+    box-shadow: none;
+    outline: 0;
+}
+
+.subscribe--form label {
+    display: block;
+    margin: 12px 0 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 20px;
+    font-style: italic;
+}
+
+.subscribe--form .submit--btn {
+    margin-top: 30px;
+    padding: 9px 15px 8px;
+    color: #fff;
+    border-color: #fff;
+}
+
+/*------------------------------------*\
+    13. FOOTER AREA
+\*------------------------------------*/
 #footer {
     padding: 25px 0;
     color: #fff;
@@ -878,14 +1557,16 @@ body.scrolled .header--navbar {
     text-align: center;
 }
 
-/* 7.1. FOOTER COPYRIGHT */
+/* 13.1. FOOTER COPYRIGHT */
 .footer--copyright a {
     color: #fff;
     font-weight: 700;
     text-decoration: none;
 }
 
-/* 8. BACK TO TOP AREA */
+/*------------------------------------*\
+    14. BACK TO TOP AREA
+\*------------------------------------*/
 #backToTop {
     position: fixed;
     right: 30px;
@@ -911,7 +1592,156 @@ body.scrolled #backToTop {
     text-align: center;
 }
 
-/* 9. 404 PAGE */
+/*------------------------------------*\
+    15. HIRE ME CONTACT MODAL
+\*------------------------------------*/
+.hire-me--modal .form-controls {
+    margin-top: -20px;
+}
+
+.hire-me--modal .form-controls input,
+.hire-me--modal .form-controls textarea,
+.hire-me--modal .form-controls select {
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #999999;
+    border: 1px solid #aaa;
+    font-size: 13px;
+    text-indent: 15px;
+    resize: none;
+}
+
+.hire-me--modal .form-controls .case-category select,
+.hire-me--modal .form-controls .budget select {
+    padding: 11px 0 10px;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+    border: 1px solid #aaa;
+}
+
+.hire-me--modal .form-controls .ui-selectmenu-button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 11px 15px;
+    color: #999;
+    background-color: #fff;
+    border-color: #aaa;
+    border-radius: 0;
+}
+
+.hire-me--modal .form-controls .budget select {
+    padding: 11px 0 9px;
+}
+
+.hire-me--modal .form-controls input.bg-fa-calender {
+    background: #fff url('img/flat-icons/fa-calender.png') no-repeat;
+    background-position: 205px 16px;
+    background-position: center right 15px;
+    background-size: 15px 15px;
+    border: 1px solid #aaa;
+}
+
+.hire-me--modal .form-controls select.bg-fa-caret-down {
+    background: #fff url('img/flat-icons/fa-caret-down.png') no-repeat;
+    background-position: 205px 16px;
+    background-position: center right 15px;
+    background-size: 10px 10px;
+}
+
+.hire-me--modal .form-controls select.bg-fa-caret-down.white {
+    background-image: url('img/flat-icons/fa-caret-down-white.png');
+}
+
+.hire-me--modal .form-controls .date input {
+    padding: 11px 0;
+}
+
+.hire-me--modal .form-controls .message textarea {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    outline: 0;
+}
+
+.hire-me--modal .form-controls .attachment {
+    margin-top: -6px;
+}
+
+.hire-me--modal .form-controls .attachment input {
+    display: none;
+}
+
+.hire-me--modal .form-controls .attachment label {
+    display: block;
+    margin-left: 15px;
+    padding: 10px 15px;
+    color: #999999;
+    background-color: #fff;
+    border: 1px solid #b6b6b6;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.hire-me--modal .form-controls .attachment label:hover {
+    color: #54baec;
+}
+
+.hire-me--modal .form-controls .attachment-status {
+    padding-left: 0;
+}
+
+.hire-me--modal .form-controls .attachment-status span {
+    display: block;
+    margin-top: -6px;
+    margin-left: -1px;
+    padding: 10px 0;
+    color: #999999;
+    background-color: #fff;
+    border: 1px solid #b6b6b6;
+    text-indent: 20px;
+}
+
+.hire-me--modal .estimate-img {
+    margin-bottom: 18px;
+}
+
+.hire-me--modal .estimate-text h4 {
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.hire-me--modal .estimate-text .radio input {
+    display: none;
+}
+
+.hire-me--modal .estimate-text .radio label {
+    position: relative;
+    margin-top: 5px;
+}
+
+.hire-me--modal .estimate-text .radio label:before {
+    content: "\f10c";
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-family: "FontAwesome";
+    font-size: 18px;
+    line-height: 0;
+    font-style: normal;
+}
+
+.hire-me--modal .estimate-text .radio input:checked + label:before {
+    content: "\f192";
+}
+
+.hire-me--modal .estimate-text .submit-btn {
+    margin-top: 10px;
+}
+
+/*------------------------------------*\
+    16. 404 PAGE
+\*------------------------------------*/
 #f0f,
 #f0f > .container {
     height: 100%;
@@ -930,10 +1760,30 @@ body.scrolled #backToTop {
     font-size: 22px;
 }
 
-/* 10. MEDIA QUERIES */
+/*------------------------------------*\
+    17. MEDIA QUERIES
+\*------------------------------------*/
+/* 17.1. DESKTOP */
+@media screen and (max-width: 1200px) {
+    .gallery-overlay h2 {
+        margin: 0;
+    }
+}
 
-/* 10.1. TABLET */
+/* 17.2. TABLET */
 @media screen and (max-width: 991px) {
+    /* HIRE ME MODAL */
+    .hire-me--modal .attachment {
+        padding-right: 15px;
+    }
+    
+    .hire-me--modal .form-controls .attachment-status {
+        padding-left: 16px;
+    }
+    
+    .hire-me--modal .estimate-container {
+        margin-top: 30px;
+    }
     
     /* HEADER */
     .header--navbar .navbar-header {
@@ -1008,11 +1858,20 @@ body.scrolled #backToTop {
         margin-top: 0;
     }
 
+    /* FEEDBACK AREA */
+    .feedback--faq + .feedback--items {
+        margin-top: 60px;
+    }
 }
 
-/* 10.2. MOBILE */
+/* 17.3. MOBILE */
 @media screen and (max-width: 767px) {
-      
+    /* MODAL */
+    .modal-dialog {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    
     /* POST DETAILS */
     .post--details .author-meta {
         padding-left: 0;
@@ -1023,6 +1882,17 @@ body.scrolled #backToTop {
         float: none;
     }
 
+    /* COUNTER AREA */
+    .counter--item {
+        text-align: center;
+    }
+    
+    .counter--num i.fa {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+    
     /* CONTACT AREA */
     #contact:before {
         display: none;
@@ -1044,10 +1914,17 @@ body.scrolled #backToTop {
     .about--info-item h5 {
         word-wrap: break-word;
     }
+    
+    /* SUBSCRIBE AREA */
+    .subscribe--form .input-box {
+        width: 100%;
+    }
 }
 
-/* 11. HELPER CLASSES */
-/* 11.1. RESET GUTTER */
+/*------------------------------------*\
+    18. HELPER CLASSES
+\*------------------------------------*/
+/* 18.1. RESET GUTTER */
 .reset-gutter {
     margin-left: 0;
     margin-right: 0;
@@ -1057,19 +1934,19 @@ body.scrolled #backToTop {
     padding-right: 0;
 }
 
-/* 11.2. RESET MARGIN */
+/* 18.2. RESET MARGIN */
 .reset-margin {
     margin-right: 0;
     margin-left: 0;
 }
 
-/* 11.3. RESET PADDING */
+/* 18.3. RESET PADDING */
 .reset-padding {
     padding-right: 0;
     padding-left: 0;
 }
 
-/* 11.4. VERTICAL CENTERING */
+/* 18.4. VERTICAL CENTERING */
 .vc--parent {
     display: table;
     width: 100%;
@@ -1086,7 +1963,7 @@ body.scrolled #backToTop {
     vertical-align: bottom;
 }
 
-/* 11.5. ROW EQUAL HEIGHT */
+/* 18.5. ROW EQUAL HEIGHT */
 .row-eq-height {
     display: -ms-flexbox;
     display: -webkit-box;
